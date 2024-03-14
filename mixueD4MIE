@@ -27,3 +27,50 @@ class LinkedList:
             total_harga += current.harga * current.jumlah
             current = current.next
         return total_harga
+
+# Menu Miexue
+menu_miexue = {
+    'Miexue Ice Cream' : 5000,
+    'Boba Shake'       : 16000,
+    'Mi Sundae'        : 14000,
+    'Mi Ganas'         : 11000,
+    'Creamy Mango Boba': 22000
+}
+
+# Inisialisasi linked list
+keranjang_pesanan = LinkedList()
+
+# Daftar menu 
+print("Selamat Datang Di Restaurant D4 MIE")
+print("====================================")
+print("              Beranda               ")
+print("      Aplikasi Pemesanan Mixue      ")
+print("====================================")
+print("1. Miexue Ice Cream     : Rp 5.000  |")
+print("2. Boba Shake           : Rp 16.000 |")
+print("3. Mi Sundae            : Rp 14.000 |")
+print("4. Mi Ganas             : Rp 11.000 |")
+print("5. Creamy Mango Boba    : Rp 22.000 |")
+print("====================================")
+print("       Mixue Cabang D4 MIE          ")
+print("====================================")
+
+# Fungsi untuk menambah pesanan ke keranjang
+def tambah_pesanan_ke_keranjang(menu):
+    for nama_menu, harga in menu.items():
+        pesan = input(f"Apakah Ingin Membeli {nama_menu}? (ya/tidak): ")
+        if pesan.lower()=='ya':
+            Jumlah = int(input(f"Jumlah pesanan {nama_menu} "))
+            keranjang_pesanan.tambahkan_pesanan(nama_menu, harga, Jumlah)
+        
+# Fungsi untuk menampilkan pesanan yang sudah ditambahkan
+def tampilkan_pesanan_ditambahkan():
+    print("=========================================================")
+    print("\nTotal Pesanan anda :")
+    keranjang_pesanan.menampilkan_pesanan()
+
+# Fungsi untuk menampilkan jumlah harga yang dibayarkan
+def tampilkan_jumlah_harga():
+    total_harga = keranjang_pesanan.hitung_total_harga()
+    print("=========================================================")
+    print(f"\nTotal harga pesanan: Rp{total_harga
